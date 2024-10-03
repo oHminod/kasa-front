@@ -35,6 +35,11 @@ main {
   flex: 1 0 auto;
   padding: 50px 100px;
 }
+@media (max-width: 1000px) {
+  main {
+    padding: 30px;
+  }
+}
 @media (max-width: 768px) {
   main {
     padding: 20px;
@@ -86,6 +91,12 @@ header nav a:hover {
 header .active {
   text-decoration: underline;
 }
+@media (max-width: 1000px) {
+  header {
+    padding: 30px;
+    padding-bottom: 10px;
+  }
+}
 @media (max-width: 768px) {
   header {
     padding: 20px;
@@ -101,6 +112,79 @@ header .active {
   }
   header .logo {
     width: 145px;
+  }
+}
+
+.collapse {
+  overflow: hidden;
+  width: 100%;
+}
+.collapse.rounded .trigger {
+  border-radius: 10px;
+}
+.collapse.open .trigger {
+  border-radius: 5px !important;
+}
+.collapse .trigger {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  width: 100%;
+  height: 54px;
+  border: none;
+  border-radius: 5px;
+  background-color: #FF6060;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+.collapse .trigger h2 {
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 26px;
+  color: #fff !important;
+}
+.collapse .trigger img {
+  width: 28px;
+  height: 28px;
+  transform: rotate(0deg);
+  transition: transform 0.3s ease;
+}
+.collapse.open .trigger img {
+  transform: rotate(180deg);
+}
+.collapse .text {
+  background-color: #F6F6F6;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  padding: 0 20px;
+  font-size: 18px;
+  font-weight: 400;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease, padding 0.3s ease;
+}
+.collapse.open .text {
+  padding: 20px;
+  max-height: 100%;
+}
+@media (max-width: 768px) {
+  .collapse .trigger {
+    padding: 10px;
+    height: 30px;
+    border-radius: 5px !important;
+  }
+  .collapse .trigger h2 {
+    font-size: 13px;
+    line-height: 18px;
+  }
+  .collapse .trigger img {
+    width: 18px !important;
+    height: 18px !important;
+  }
+  .collapse .text p {
+    font-size: 12px !important;
+    line-height: 17px !important;
   }
 }
 
@@ -139,7 +223,6 @@ header .active {
   background-color: #F6F6F6;
   border-radius: 25px;
   margin-top: 43px;
-  margin-bottom: 50px;
   padding: 5%;
   display: flex;
   flex-wrap: wrap;
@@ -212,9 +295,18 @@ header .active {
   max-width: 80%;
 }
 @media (max-width: 1000px) {
+  #home-page .banner {
+    border-radius: 20px;
+  }
+  #home-page .banner h1 {
+    font-size: 40px;
+    padding: 16px;
+  }
   #home-page .logements {
     gap: 4%;
     row-gap: 20px;
+    border-radius: 20px;
+    margin-top: 30px;
   }
   #home-page .logements .logementCard {
     width: 48%;
@@ -261,10 +353,52 @@ header .active {
   overflow: hidden;
   border-radius: 25px;
 }
-#logement-page .carousel img {
+#logement-page .carousel button {
+  background: none;
+  border: none;
+}
+#logement-page .carousel .carousel-image {
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+#logement-page .carousel .left-arrow {
+  position: absolute;
+  top: 50%;
+  left: 20px;
+  transform: translateY(-50%);
+  z-index: 1;
+  cursor: pointer;
+}
+#logement-page .carousel .right-arrow {
+  position: absolute;
+  top: 50%;
+  right: 20px;
+  transform: translateY(-50%);
+  z-index: 1;
+  cursor: pointer;
+}
+#logement-page .carousel .carousel-pagination {
+  position: absolute;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+  z-index: 1;
+  color: #fff;
+  font-size: 18px;
+  font-weight: 500;
+}
+@media (max-width: 768px) {
+  #logement-page .carousel .left-arrow .arrow-icon,
+  #logement-page .carousel .right-arrow .arrow-icon {
+    width: 30px;
+    height: 30px;
+  }
+  #logement-page .carousel .carousel-pagination {
+    display: none;
+  }
 }
 #logement-page .cartouche {
   display: flex;
@@ -328,8 +462,25 @@ header .active {
   height: 36px;
 }
 #logement-page .bloc-droit .rating div img {
-  width: 30px;
-  height: 30px;
+  width: 36px;
+  height: 36px;
+}
+#logement-page .stuff {
+  display: flex;
+  gap: 76px;
+  margin-top: 24px;
+}
+#logement-page .stuff p {
+  font-size: 18px;
+  line-height: 25px;
+  font-weight: 400;
+  color: #000;
+}
+#logement-page .stuff .description {
+  width: 50%;
+}
+#logement-page .stuff .equipements {
+  width: 50%;
 }
 @media (max-width: 768px) {
   #logement-page .carousel {
@@ -391,8 +542,51 @@ header .active {
     height: 18px;
   }
   #logement-page .cartouche .bloc-droit .rating div img {
-    width: 15px;
-    height: 15px;
+    width: 18px;
+    height: 18px;
+  }
+}
+
+#about-page .banner {
+  height: 223px;
+  position: relative;
+  border-radius: 25px;
+  overflow: hidden;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+#about-page .banner img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+#about-page .content {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  padding: 0 108px;
+  margin-top: 40px;
+}
+@media (max-width: 1000px) {
+  #about-page .banner {
+    border-radius: 20px;
+  }
+  #about-page .banner h1 {
+    font-size: 40px;
+    padding: 16px;
+  }
+}
+@media (max-width: 768px) {
+  #about-page .banner {
+    height: 111px;
+    border-radius: 10px;
+  }
+  #about-page .banner h1 {
+    font-size: 24px;
+    padding: 16px;
+  }
+  #about-page .content {
+    margin-top: 20px;
+    gap: 20px;
   }
 }
 

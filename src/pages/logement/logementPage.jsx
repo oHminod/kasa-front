@@ -5,6 +5,7 @@ import ErrorPage from "../error/errorPage";
 import Carousel from "./components/carousel";
 import Tags from "./components/tags";
 import Rating from "./components/rating";
+import Collapse from "../../components/collapse";
 
 const LogementPage = () => {
   const { id } = useParams();
@@ -40,8 +41,12 @@ const LogementPage = () => {
         </div>
       </div>
       <div className="stuff">
-        <div className="description"></div>
-        <div className="equipements"></div>
+        <div className="description">
+          <Collapse trigger="Description" text={logement.description} />
+        </div>
+        <div className="equipements">
+          <Collapse trigger="Équipements" text={logement.equipments} />
+        </div>
       </div>
     </div>
   );

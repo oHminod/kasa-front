@@ -35,6 +35,12 @@ main {
     flex: 1 0 auto;
     padding: 50px 100px;
 
+
+    @media (max-width: 1000px) {
+        padding: 30px;
+    }
+
+
     @media (max-width: 768px) {
         padding: 20px;
     }
@@ -93,6 +99,11 @@ header {
         text-decoration: underline;
     }
 
+    @media (max-width: 1000px) {
+        padding: 30px;
+        padding-bottom: 10px;
+    }
+
     @media (max-width: 768px) {
         padding: 20px;
         padding-bottom: 5px;
@@ -109,6 +120,94 @@ header {
 
         .logo {
             width: 145px;
+        }
+    }
+}
+
+.collapse {
+    overflow: hidden;
+    width: 100%;
+
+    &.rounded .trigger {
+        border-radius: 10px;
+    }
+
+    &.open .trigger {
+        border-radius: 5px !important;
+    }
+
+    .trigger {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 20px;
+        width: 100%;
+        height: 54px;
+        border: none;
+        border-radius: 5px;
+        background-color: #FF6060;
+        transition: all 0.3s ease;
+        cursor: pointer;
+
+        h2 {
+            font-size: 18px;
+            font-weight: 700;
+            line-height: 26px;
+            color: #fff !important;
+        }
+
+        img {
+            width: 28px;
+            height: 28px;
+            transform: rotate(0deg);
+            transition: transform 0.3s ease;
+        }
+    }
+
+    &.open .trigger img {
+        transform: rotate(180deg);
+    }
+
+    .text {
+        background-color: #F6F6F6;
+        border-bottom-left-radius: 5px;
+        border-bottom-right-radius: 5px;
+        padding: 0 20px;
+        font-size: 18px;
+        font-weight: 400;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease, padding 0.3s ease;
+    }
+
+    &.open .text {
+        padding: 20px;
+        max-height: 100%;
+    }
+
+    @media (max-width: 768px) {
+        .trigger {
+            padding: 10px;
+            height: 30px;
+            border-radius: 5px !important;
+
+            h2 {
+                font-size: 13px;
+                line-height: 18px;
+            }
+
+            img {
+                width: 18px !important;
+                height: 18px !important;
+            }
+        }
+
+        .text {
+            p {
+                font-size: 12px !important;
+                line-height: 17px !important;
+                ;
+            }
         }
     }
 }
@@ -153,7 +252,6 @@ header {
         background-color: #F6F6F6;
         border-radius: 25px;
         margin-top: 43px;
-        margin-bottom: 50px;
         padding: 5%;
         display: flex;
         flex-wrap: wrap;
@@ -243,9 +341,20 @@ header {
     }
 
     @media (max-width: 1000px) {
+        .banner {
+            border-radius: 20px;
+
+            h1 {
+                font-size: 40px;
+                padding: 16px;
+            }
+        }
+
         .logements {
             gap: 4%;
             row-gap: 20px;
+            border-radius: 20px;
+            margin-top: 30px;
 
             .logementCard {
                 width: 48%;
@@ -302,10 +411,61 @@ header {
         overflow: hidden;
         border-radius: 25px;
 
-        img {
+        button {
+            background: none;
+            border: none;
+        }
+
+        .carousel-image {
             width: 100%;
             height: 100%;
             object-fit: cover;
+        }
+
+        .left-arrow {
+            position: absolute;
+            top: 50%;
+            left: 20px;
+            transform: translateY(-50%);
+            z-index: 1;
+            cursor: pointer;
+        }
+
+        .right-arrow {
+            position: absolute;
+            top: 50%;
+            right: 20px;
+            transform: translateY(-50%);
+            z-index: 1;
+            cursor: pointer;
+        }
+
+        .carousel-pagination {
+            position: absolute;
+            bottom: 24px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+            z-index: 1;
+            color: #fff;
+            font-size: 18px;
+            font-weight: 500;
+        }
+
+        @media (max-width: 768px) {
+
+            .left-arrow,
+            .right-arrow {
+                .arrow-icon {
+                    width: 30px;
+                    height: 30px;
+                }
+            }
+
+            .carousel-pagination {
+                display: none;
+            }
         }
     }
 
@@ -381,10 +541,31 @@ header {
                 height: 36px;
 
                 img {
-                    width: 30px;
-                    height: 30px;
+                    width: 36px;
+                    height: 36px;
                 }
             }
+        }
+    }
+
+    .stuff {
+        display: flex;
+        gap: 76px;
+        margin-top: 24px;
+
+        p {
+            font-size: 18px;
+            line-height: 25px;
+            font-weight: 400;
+            color: #000;
+        }
+
+        .description {
+            width: 50%;
+        }
+
+        .equipements {
+            width: 50%;
         }
     }
 
@@ -457,12 +638,64 @@ header {
                         height: 18px;
 
                         img {
-                            width: 15px;
-                            height: 15px;
+                            width: 18px;
+                            height: 18px;
                         }
                     }
                 }
             }
+        }
+    }
+}
+
+#about-page {
+    .banner {
+        height: 223px;
+        position: relative;
+        border-radius: 25px;
+        overflow: hidden;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+
+    .content {
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+        padding: 0 108px;
+        margin-top: 40px;
+    }
+
+    @media (max-width: 1000px) {
+        .banner {
+            border-radius: 20px;
+
+            h1 {
+                font-size: 40px;
+                padding: 16px;
+            }
+        }
+    }
+
+    @media (max-width: 768px) {
+        .banner {
+            height: 111px;
+            border-radius: 10px;
+
+            h1 {
+                font-size: 24px;
+                padding: 16px;
+            }
+        }
+
+        .content {
+            margin-top: 20px;
+            gap: 20px;
         }
     }
 }
