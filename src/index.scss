@@ -157,11 +157,12 @@ header {
         padding: 5%;
         display: flex;
         flex-wrap: wrap;
-        gap: 5%;
+        justify-content: space-between;
+        gap: 3%;
         row-gap: 50px;
 
         .logementCard {
-            width: 30%;
+            width: 31%;
             aspect-ratio: 1 / 1;
             display: flex;
             flex-direction: column;
