@@ -6,10 +6,12 @@ import Carousel from "./components/carousel";
 import Tags from "./components/tags";
 import Rating from "./components/rating";
 import Collapse from "../../components/collapse";
+import Loading from "../../components/loading";
+import HostAvatar from "./components/hostAvatar";
 
 const LogementPage = () => {
   const { id } = useParams();
-  const { getLogement } = useLogements();
+  const { getLogement, loaded } = useLogements();
   const [logement, setLogement] = useState(null);
 
   useEffect(() => {
@@ -21,6 +23,7 @@ const LogementPage = () => {
     fetchLogement();
   }, [id, getLogement]);
 
+  if (!loaded) return <Loading />;
   if (!logement) return <ErrorPage error={{ status: 404 }} />;
 
   return (
@@ -35,7 +38,7 @@ const LogementPage = () => {
         <div className="bloc-droit">
           <div className="host">
             <p>{logement.host.name}</p>
-            <img src={logement.host.picture} alt="photo de l'hôte" />
+            <HostAvatar src={logement.host.picture} alt={logement.host.name} />
           </div>
           <Rating rating={logement.rating} />
         </div>
