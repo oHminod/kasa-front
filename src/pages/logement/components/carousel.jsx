@@ -2,17 +2,12 @@ import PropTypes from "prop-types";
 import LeftArrow from "/src/assets/arrow_left.svg";
 import RightArrow from "/src/assets/arrow_right.svg";
 import { useEffect, useState } from "react";
-import ImageLoader from "../../../components/imageLoader";
+import Image from "../../../components/image";
 
 const Carousel = ({ pictures }) => {
   const [currentPicture, setCurrentPicture] = useState(0);
   const [hasClicked, setHasClicked] = useState(false);
   const imageNumber = currentPicture + 1;
-  const [isLoading, setIsLoading] = useState(true);
-
-  const handleImageLoad = () => {
-    setIsLoading(false);
-  };
 
   const handleForward = () => {
     setCurrentPicture((currentPicture + 1) % pictures.length);
@@ -38,27 +33,29 @@ const Carousel = ({ pictures }) => {
   if (pictures.length === 1)
     return (
       <div className="carousel">
-        {isLoading && <ImageLoader />}
-        <img
-          className="carousel-image"
+        <Image
           src={pictures[0]}
           alt={"image" + (0 + 1)}
-          onLoad={handleImageLoad}
-          style={{ display: isLoading ? "none" : "block" }}
+          className="carousel-image"
         />
       </div>
     );
 
   return (
     <div className="carousel">
-      {isLoading && <ImageLoader />}
+      <Image
+        src={pictures[currentPicture]}
+        alt={"image" + imageNumber}
+        className="carousel-image"
+      />
+      {/* {isLoading && <ImageLoader />}
       <img
         className="carousel-image"
         src={pictures[currentPicture]}
         alt={"image" + imageNumber}
         onLoad={handleImageLoad}
         style={{ display: isLoading ? "none" : "block" }}
-      />
+      /> */}
       <button className="left-arrow" onClick={handleBackward}>
         <img className="arrow-icon" src={LeftArrow} alt="left arrow" />
       </button>

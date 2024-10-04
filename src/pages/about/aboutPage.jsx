@@ -1,24 +1,14 @@
-import { useState } from "react";
 import Collapse from "../../components/collapse";
-import ImageLoader from "../../components/imageLoader";
+import Image from "../../components/image";
 
 const AboutPage = () => {
-  const [isLoading, setIsLoading] = useState(true);
-
-  const handleImageLoad = () => {
-    setIsLoading(false);
-  };
-
   return (
     <div id="about-page">
       <div className="banner">
-        {isLoading && <ImageLoader />}
-        <img
-          className="banner-image"
+        <Image
           src="/IMAGE_2.jpg"
           alt="image de bannière"
-          onLoad={handleImageLoad}
-          style={{ display: isLoading ? "none" : "block" }}
+          className="banner-image"
         />
       </div>
       <div className="content">
