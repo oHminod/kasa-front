@@ -254,9 +254,13 @@ header {
         position: relative;
         z-index: 1;
         background-color: #F6F6F6;
+        margin-top: -5px;
         padding: 20px;
+        padding-top: 25px;
         font-size: 18px;
         font-weight: 400;
+        border-bottom-left-radius: 5px;
+        border-bottom-right-radius: 5px;
         transform: translateY(-100%);
         transition: transform 0.3s ease;
 
