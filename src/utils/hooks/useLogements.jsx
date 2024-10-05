@@ -1,7 +1,8 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { LogementsContext, SetLogementsContext } from "../logementsContext";
 
 const useLogements = () => {
+  const [error, setError] = useState(null);
   const logements = useContext(LogementsContext);
   const setLogements = useContext(SetLogementsContext);
 
@@ -12,17 +13,26 @@ const useLogements = () => {
 
   const getAllLogements = async () => {
     if (logements.loaded === false) {
-      const response = await fetch("http://localhost:5173/data/logements.json");
-      const data = await response.json();
-      setLogements({ data, loaded: true });
-      console.log("Logements loaded");
+      try {
+        setError(null);
+        const response = await fetch("/data/logements.json");
+        const data = await response.json();
+        // const error = new Error("Error while fetching about.json");
+        // error.status = 400;
+        // throw error;
+        setLogements({ data, loaded: true });
+        console.log("Logements loaded");
+      } catch (error) {
+        setLogements({ loaded: true });
+        setError(error);
+      }
     }
   };
 
   const getLogement = async (id) => {
     if (!logements.loaded) await getAllLogements();
 
-    return logements.data.find((logement) => logement.id === id);
+    return logements.data?.find((logement) => logement.id === id);
   };
 
   return {
@@ -31,6 +41,7 @@ const useLogements = () => {
     getAllLogements,
     loaded: logements.loaded,
     getLogement,
+    error,
   };
 };
 

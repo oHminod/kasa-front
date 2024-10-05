@@ -11,7 +11,7 @@ import HostAvatar from "./components/hostAvatar";
 
 const LogementPage = () => {
   const { id } = useParams();
-  const { getLogement, loaded } = useLogements();
+  const { getLogement, loaded, error } = useLogements();
   const [logement, setLogement] = useState(null);
 
   useEffect(() => {
@@ -24,6 +24,7 @@ const LogementPage = () => {
   }, [id, getLogement]);
 
   if (!loaded) return <Loading />;
+  if (error) return <ErrorPage error={error} />;
   if (!logement) return <ErrorPage error={{ status: 404 }} />;
 
   return (

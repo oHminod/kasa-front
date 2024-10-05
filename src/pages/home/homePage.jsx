@@ -2,12 +2,24 @@ import Loading from "../../components/loading";
 import useLogements from "../../utils/hooks/useLogements";
 import Image from "../../components/image";
 import Logements from "./components/logements";
+import ErrorPage from "../error/errorPage";
+import { useEffect } from "react";
 
 const HomePage = () => {
-  const { logements, loaded, getAllLogements } = useLogements();
-  getAllLogements();
+  const { logements, loaded, getAllLogements, error } = useLogements();
+
+  useEffect(() => {
+    const fetchLogements = async () => {
+      await getAllLogements();
+    };
+
+    fetchLogements();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   if (!loaded) return <Loading />;
+  if (error) return <ErrorPage error={error} />;
+
   return (
     <div id="home-page">
       <div className="banner">
