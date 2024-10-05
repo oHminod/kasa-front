@@ -22,9 +22,8 @@ const Collapse = ({ trigger, text, rounded = true }) => {
 
   useEffect(() => {
     calculateCollapseHeight();
-    // Recalculate on window resize
     window.addEventListener("resize", calculateCollapseHeight);
-    // Clean up the event listener on unmount
+
     return () => {
       window.removeEventListener("resize", calculateCollapseHeight);
     };
