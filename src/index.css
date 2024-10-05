@@ -31,6 +31,14 @@ body {
   flex-direction: column;
 }
 
+.block {
+  display: block;
+}
+
+.hidden {
+  display: none;
+}
+
 main {
   flex: 1 0 auto;
   padding: 50px 100px;

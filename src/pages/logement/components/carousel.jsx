@@ -23,11 +23,14 @@ const Carousel = ({ pictures }) => {
 
   useEffect(() => {
     if (pictures.length <= 1 || hasClicked) return;
-    setTimeout(() => {
-      !hasClicked
-        ? setCurrentPicture((currentPicture + 1) % pictures.length)
-        : null;
+
+    const timeoutId = setTimeout(() => {
+      setCurrentPicture((currentPicture + 1) % pictures.length);
     }, 5000);
+
+    return () => {
+      clearTimeout(timeoutId);
+    };
   }, [currentPicture, pictures.length, hasClicked]);
 
   if (pictures.length === 1)
@@ -48,14 +51,6 @@ const Carousel = ({ pictures }) => {
         alt={"image" + imageNumber}
         className="carousel-image"
       />
-      {/* {isLoading && <ImageLoader />}
-      <img
-        className="carousel-image"
-        src={pictures[currentPicture]}
-        alt={"image" + imageNumber}
-        onLoad={handleImageLoad}
-        style={{ display: isLoading ? "none" : "block" }}
-      /> */}
       <button className="left-arrow" onClick={handleBackward}>
         <img className="arrow-icon" src={LeftArrow} alt="left arrow" />
       </button>

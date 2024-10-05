@@ -16,8 +16,7 @@ const Image = ({ src, alt, className }) => {
         src={src}
         alt={alt}
         onLoad={handleImageLoad}
-        style={{ display: isLoading ? "none" : "block" }}
-        className={className}
+        className={`${className} ${isLoading ? "hidden" : "block"}`}
       />
     </>
   );

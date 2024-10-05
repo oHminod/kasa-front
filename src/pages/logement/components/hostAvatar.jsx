@@ -1,5 +1,5 @@
 import { useState } from "react";
-import AvatarLoader from "../../../components/avatarLoader";
+import AvatarLoader from "./avatarLoader";
 import PropTypes from "prop-types";
 
 const HostAvatar = ({ src, alt }) => {
@@ -16,7 +16,7 @@ const HostAvatar = ({ src, alt }) => {
         src={src}
         alt={alt}
         onLoad={handleImageLoad}
-        style={{ display: isLoading ? "none" : "block" }}
+        className={isLoading ? "hidden" : "block"}
       />
     </div>
   );
