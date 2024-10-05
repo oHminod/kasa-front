@@ -301,6 +301,7 @@ header .active {
   color: #F6F6F6;
   position: absolute;
   text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  text-wrap: balance;
 }
 #home-page .logements {
   background-color: #F6F6F6;
@@ -376,6 +377,7 @@ header .active {
   font-weight: 700;
   color: #fff;
   max-width: 80%;
+  text-wrap: balance;
 }
 @media (max-width: 1000px) {
   #home-page .banner {
@@ -402,10 +404,12 @@ header .active {
   #home-page .banner {
     height: 111px;
     border-radius: 10px;
+    box-shadow: none;
   }
   #home-page .banner h1 {
     font-size: 24px;
     padding: 16px;
+    text-shadow: none;
   }
   #home-page .logements {
     margin-top: 22px;
@@ -493,6 +497,7 @@ header .active {
   font-size: 38px;
   font-weight: 500;
   color: #FF6060;
+  text-wrap: balance;
 }
 #logement-page .cartouche .bloc-gauche p {
   font-size: 18px;
