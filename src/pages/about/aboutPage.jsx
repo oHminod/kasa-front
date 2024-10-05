@@ -13,11 +13,12 @@ const AboutPage = () => {
       try {
         const response = await fetch("/data/about.json");
         const data = await response.json();
-        setAboutJSON(data);
         // const error = new Error("Error while fetching about.json");
         // error.status = 400;
         // throw error;
+        setAboutJSON(data);
       } catch (error) {
+        setAboutJSON([]);
         setError(error);
       }
     };
@@ -25,8 +26,9 @@ const AboutPage = () => {
     fetchAbout();
   }, []);
 
-  if (error) return <ErrorPage error={error} />;
   if (!aboutJSON) return <Loading />;
+  if (error) return <ErrorPage error={error} />;
+
   return (
     <div id="about-page">
       <div className="banner">
