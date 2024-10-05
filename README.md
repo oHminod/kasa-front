@@ -14,7 +14,7 @@ Kasa est une application web de location de logements développée avec React et
 1. Clonez le dépôt :
 
    ```sh
-   git clone <URL_DU_DEPOT>
+   git clone https://github.com/oHminod/kasa-front.git
    cd kasa-front
    ```
 
