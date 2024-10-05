@@ -1,6 +1,6 @@
 const ImageLoader = () => {
   return (
-    <div id="image-loader">
+    <div className="image-loader">
       <div className="spinner"></div>
     </div>
   );
