@@ -11,22 +11,26 @@ Kasa est une application web de location de logements développée avec React et
 
 ## Installation
 
-1. Clonez le dépôt :
+1. Cloner le dépôt :
 
    ```sh
    git clone https://github.com/oHminod/kasa-front.git
    cd kasa-front
    ```
 
-2. Installez les dépendances :
+2. Installer les dépendances :
    ```sh
    npm install
    ```
 
 ## Scripts
 
-- `npm run dev` : Démarre le serveur de développement avec Vite.
-- `npm run build` : Construit l'application pour la production.
-- `npm run lint` : Lint le code avec ESLint.
-- `npm run preview` : Prévisualise l'application construite.
-- `npm run sass` : Compile les fichiers SCSS en CSS.
+- `npm run dev` : Démarrer le serveur de développement avec Vite. (À utiliser pour tester le projet en local !)
+- `npm run build` : Construire l'application pour la production.
+- `npm run lint` : Linter le code avec ESLint.
+- `npm run preview` : Prévisualiser l'application construite.
+- `npm run sass` : Compiler les fichiers SCSS en CSS.
+
+## Version live sur github pages
+
+Une version live de l'application est disponible sur [GitHub Pages](https://ohminod.github.io/kasa-front/). Elle est un peu limitée de par la nature de l'hébergement, tout rafraichissement de page en dehors de la page d'accueil renvoit une erreur de github pages.
