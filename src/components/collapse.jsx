@@ -12,8 +12,8 @@ const Collapse = ({ trigger, text, rounded = true }) => {
     const triggerHeight = triggerRef.current
       ? triggerRef.current.offsetHeight
       : 0;
-    if (isOpen && textRef.current) {
-      const contentHeight = textRef.current.scrollHeight;
+    if (textRef.current && triggerRef.current) {
+      const contentHeight = isOpen ? textRef.current.scrollHeight : 0;
       setCollapseHeight(triggerHeight + contentHeight);
     } else {
       setCollapseHeight(triggerHeight);
@@ -21,11 +21,17 @@ const Collapse = ({ trigger, text, rounded = true }) => {
   };
 
   useEffect(() => {
-    calculateCollapseHeight();
-    window.addEventListener("resize", calculateCollapseHeight);
+    const observer = new ResizeObserver(calculateCollapseHeight);
+
+    if (textRef.current) {
+      observer.observe(textRef.current);
+    }
+    if (triggerRef.current) {
+      observer.observe(triggerRef.current);
+    }
 
     return () => {
-      window.removeEventListener("resize", calculateCollapseHeight);
+      observer.disconnect();
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isOpen]);
