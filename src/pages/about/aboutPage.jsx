@@ -11,6 +11,7 @@ const AboutPage = () => {
   useEffect(() => {
     const fetchAbout = async () => {
       try {
+        if (error) setError(null);
         const response = await fetch("/data/about.json");
 
         if (!response.ok) {
@@ -31,6 +32,7 @@ const AboutPage = () => {
     };
 
     fetchAbout();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   if (!aboutJSON) return <Loading />;
