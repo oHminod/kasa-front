@@ -7,6 +7,7 @@ import Image from "../../../components/image";
 const Carousel = ({ pictures }) => {
   const [currentPicture, setCurrentPicture] = useState(0);
   const [hasClicked, setHasClicked] = useState(false);
+  const [loaded, setLoaded] = useState(false);
   const imageNumber = currentPicture + 1;
 
   const handleForward = () => {
@@ -22,7 +23,7 @@ const Carousel = ({ pictures }) => {
   };
 
   useEffect(() => {
-    if (pictures.length <= 1 || hasClicked) return;
+    if (pictures.length <= 1 || hasClicked || !loaded) return;
 
     const timeoutId = setTimeout(() => {
       setCurrentPicture((currentPicture + 1) % pictures.length);
@@ -31,7 +32,7 @@ const Carousel = ({ pictures }) => {
     return () => {
       clearTimeout(timeoutId);
     };
-  }, [currentPicture, pictures.length, hasClicked]);
+  }, [currentPicture, pictures.length, hasClicked, loaded]);
 
   if (pictures.length === 1)
     return (
@@ -39,18 +40,24 @@ const Carousel = ({ pictures }) => {
         <Image
           src={pictures[0]}
           alt={"image" + (0 + 1)}
-          className="carousel-image"
+          className="carousel-image active"
         />
       </div>
     );
 
   return (
     <div className="carousel">
-      <Image
-        src={pictures[currentPicture]}
-        alt={"image" + imageNumber}
-        className="carousel-image"
-      />
+      {pictures.map((picture, index) => (
+        <Image
+          key={index}
+          src={picture}
+          alt={"image" + (index + 1)}
+          className={`carousel-image ${
+            index === currentPicture ? "active" : "inactive"
+          }`}
+          setLoaded={index === pictures.length - 1 ? setLoaded : null}
+        />
+      ))}
       <button className="left-arrow" onClick={handleBackward}>
         <img className="arrow-icon" src={LeftArrow} alt="left arrow" />
       </button>
