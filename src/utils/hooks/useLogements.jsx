@@ -16,10 +16,17 @@ const useLogements = () => {
       try {
         setError(null);
         const response = await fetch("/data/logements.json");
+
+        if (!response.ok) {
+          const error = new Error(
+            response.statusText || "Error while fetching logements.json"
+          );
+          error.status = response.status || 500;
+          throw error;
+        }
+
         const data = await response.json();
-        // const error = new Error("Error while fetching about.json");
-        // error.status = 400;
-        // throw error;
+
         setLogements({ data, loaded: true });
         console.log("Logements loaded");
       } catch (error) {

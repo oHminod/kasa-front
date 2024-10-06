@@ -12,10 +12,17 @@ const AboutPage = () => {
     const fetchAbout = async () => {
       try {
         const response = await fetch("/data/about.json");
+
+        if (!response.ok) {
+          const error = new Error(
+            response.statusText || "Error while fetching about.json"
+          );
+          error.status = response.status || 500;
+          throw error;
+        }
+
         const data = await response.json();
-        // const error = new Error("Error while fetching about.json");
-        // error.status = 400;
-        // throw error;
+
         setAboutJSON(data);
       } catch (error) {
         setAboutJSON([]);
