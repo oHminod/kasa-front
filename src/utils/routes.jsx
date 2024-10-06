@@ -16,7 +16,7 @@ const Router = () => {
 
   const routes = createBrowserRouter([
     {
-      path: "/",
+      path: "/kasa-front/",
       element: <Layout />,
       children: [
         {
@@ -24,11 +24,11 @@ const Router = () => {
           element: <HomePage />,
         },
         {
-          path: "about",
+          path: "/kasa-front/about",
           element: <AboutPage />,
         },
         {
-          path: "logement/:id",
+          path: "/kasa-front/logement/:id",
           element: <LogementPage />,
         },
         {

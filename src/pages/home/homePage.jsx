@@ -24,7 +24,7 @@ const HomePage = () => {
     <div id="home-page">
       <div className="banner">
         <Image
-          src="/IMAGE_1.jpg"
+          src="/kasa-front/IMAGE_1.jpg"
           alt="image de bannière"
           className="banner-image"
         />

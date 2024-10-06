@@ -13,7 +13,7 @@ const ErrorPage = ({ error: propError }) => {
           ? "Oups, la page que vous demandez n'existe pas"
           : error?.statusText || error?.message || "Erreur inconnue"}
       </p>
-      <Link to="/">Retourner sur la page d&apos;accueil</Link>
+      <Link to="/kasa-front/">Retourner sur la page d&apos;accueil</Link>
     </div>
   );
 };

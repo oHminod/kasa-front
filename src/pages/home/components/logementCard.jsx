@@ -5,7 +5,7 @@ import Image from "../../../components/image";
 const LogementCard = ({ logement }) => {
   return (
     <div className="logementCard">
-      <Link to={`/logement/${logement.id}`}>
+      <Link to={`/kasa-front/logement/${logement.id}`}>
         <Image
           src={logement.cover}
           alt="image du logement"

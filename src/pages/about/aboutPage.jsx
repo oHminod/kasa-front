@@ -12,7 +12,7 @@ const AboutPage = () => {
     const fetchAbout = async () => {
       try {
         if (error) setError(null);
-        const response = await fetch("/data/about.json");
+        const response = await fetch("/kasa-front/data/about.json");
 
         if (!response.ok) {
           const error = new Error(
@@ -42,7 +42,7 @@ const AboutPage = () => {
     <div id="about-page">
       <div className="banner">
         <Image
-          src="/IMAGE_2.jpg"
+          src="/kasa-front/IMAGE_2.jpg"
           alt="image de bannière"
           className="banner-image"
         />

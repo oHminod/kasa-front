@@ -6,21 +6,26 @@ const Header = () => {
   return (
     <header>
       <div className="logo">
-        <Link to="/">
-          <img src="/LOGO.png" alt="logo" />
+        <Link to="/kasa-front/">
+          <img src="/kasa-front/LOGO.png" alt="logo" />
         </Link>
       </div>
       <nav>
         <ul>
           <li>
-            <Link to="/" className={location.pathname === "/" ? "active" : ""}>
+            <Link
+              to="/kasa-front/"
+              className={location.pathname === "/kasa-front/" ? "active" : ""}
+            >
               Accueil
             </Link>
           </li>
           <li>
             <Link
-              to="/about"
-              className={location.pathname === "/about" ? "active" : ""}
+              to="/kasa-front/about"
+              className={
+                location.pathname === "/kasa-front/about" ? "active" : ""
+              }
             >
               À propos
             </Link>

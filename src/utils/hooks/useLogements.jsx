@@ -15,7 +15,7 @@ const useLogements = () => {
     if (logements.loaded === false) {
       try {
         setError(null);
-        const response = await fetch("/data/logements.json");
+        const response = await fetch("/kasa-front/data/logements.json");
 
         if (!response.ok) {
           const error = new Error(
