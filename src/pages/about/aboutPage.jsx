@@ -46,6 +46,7 @@ const AboutPage = () => {
           alt="image de bannière"
           className="banner-image"
         />
+        <div className="layout"></div>
       </div>
       <div className="content">
         {aboutJSON.map((section, i) => (
