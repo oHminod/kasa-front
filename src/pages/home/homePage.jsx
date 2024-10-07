@@ -19,6 +19,8 @@ const HomePage = () => {
 
   if (!loaded) return <Loading />;
   if (error) return <ErrorPage error={error} />;
+  if (!logements || !logements.length)
+    return <ErrorPage error={{ status: 404 }} />;
 
   return (
     <div id="home-page">

@@ -30,7 +30,7 @@ const useLogements = () => {
         setLogements({ data, loaded: true });
         console.log("Logements loaded");
       } catch (error) {
-        setLogements({ loaded: true });
+        setLogements({ data: [], loaded: true });
         setError(error);
       }
     }
