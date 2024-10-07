@@ -1,3 +1,5 @@
+![logo](https://ohminod.github.io/kasa-front/LOGO.png)
+
 # Kasa
 
 Kasa est une application web de location de logements développée avec React et Vite. Elle permet aux utilisateurs de consulter des informations sur différents logements, y compris des descriptions, des évaluations et des équipements.
@@ -33,4 +35,4 @@ Kasa est une application web de location de logements développée avec React et
 
 ## Version live sur github pages
 
-Une version live de l'application est disponible sur [GitHub Pages](https://ohminod.github.io/kasa-front/). Elle est un peu limitée de par la nature de l'hébergement, tout rafraichissement de page en dehors de la page d'accueil renvoit une erreur de github pages.
+Une version live de l'application est disponible sur [GitHub Pages](https://ohminod.github.io/kasa-front/){:target="\_blank"}. Elle est un peu limitée de par la nature de l'hébergement, tout rafraichissement de page en dehors de la page d'accueil renvoit une erreur de github pages.
