@@ -863,6 +863,23 @@ header {
         text-underline-offset: 2px;
         text-decoration-skip-ink: none;
     }
+
+    @media (max-width: 768px) {
+
+        h1 {
+            font-size: 96px;
+        }
+
+        P {
+            font-size: 18px;
+            text-align: center;
+        }
+
+        a {
+            font-size: 14px;
+            text-align: center;
+        }
+    }
 }
 
 footer {

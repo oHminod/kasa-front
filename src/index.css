@@ -742,6 +742,19 @@ header .active {
   text-underline-offset: 2px;
   text-decoration-skip-ink: none;
 }
+@media (max-width: 768px) {
+  #error-page h1 {
+    font-size: 96px;
+  }
+  #error-page P {
+    font-size: 18px;
+    text-align: center;
+  }
+  #error-page a {
+    font-size: 14px;
+    text-align: center;
+  }
+}
 
 footer {
   flex-shrink: 0;
