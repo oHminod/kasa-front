@@ -29,7 +29,7 @@ Kasa est une application web de location de logements développée avec React et
 - `npm run build` : Construire l'application pour la production.
 - `npm run lint` : Linter le code avec ESLint.
 - `npm run preview` : Prévisualiser l'application construite.
-- `npm run sass` : Compiler les fichiers SCSS en CSS.
+- `npm run sass` : Compiler les fichiers SCSS en CSS. (Nécessite la présence de sass sur le système !)
 
 ## Version live sur github pages
 
