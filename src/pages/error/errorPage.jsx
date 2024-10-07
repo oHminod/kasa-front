@@ -10,7 +10,7 @@ const ErrorPage = ({ error: propError }) => {
       <h1>{error?.status || 520}</h1>
       <p>
         {error?.status === 404
-          ? "Oups, la page que vous demandez n'existe pas"
+          ? "Oups! La page que vous demandez n'existe pas"
           : error?.statusText || error?.message || "Erreur inconnue"}
       </p>
       <Link to="/">Retourner sur la page d&apos;accueil</Link>
