@@ -472,7 +472,8 @@ header .active {
 #logement-page .carousel .left-arrow {
   position: absolute;
   top: 50%;
-  left: 20px;
+  left: 0;
+  padding: 20px;
   transform: translateY(-50%);
   z-index: 2;
   cursor: pointer;
@@ -480,7 +481,8 @@ header .active {
 #logement-page .carousel .right-arrow {
   position: absolute;
   top: 50%;
-  right: 20px;
+  right: 0;
+  padding: 20px;
   transform: translateY(-50%);
   z-index: 2;
   cursor: pointer;
@@ -741,6 +743,19 @@ header .active {
   color: #000;
   text-underline-offset: 2px;
   text-decoration-skip-ink: none;
+}
+@media (max-width: 768px) {
+  #error-page h1 {
+    font-size: 96px;
+  }
+  #error-page P {
+    font-size: 18px;
+    text-align: center;
+  }
+  #error-page a {
+    font-size: 14px;
+    text-align: center;
+  }
 }
 
 footer {
