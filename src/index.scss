@@ -539,7 +539,8 @@ header {
         .left-arrow {
             position: absolute;
             top: 50%;
-            left: 20px;
+            left: 0;
+            padding: 20px;
             transform: translateY(-50%);
             z-index: 2;
             cursor: pointer;
@@ -548,7 +549,8 @@ header {
         .right-arrow {
             position: absolute;
             top: 50%;
-            right: 20px;
+            right: 0;
+            padding: 20px;
             transform: translateY(-50%);
             z-index: 2;
             cursor: pointer;
