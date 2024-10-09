@@ -9,9 +9,8 @@ const Collapse = ({ trigger, text, rounded = true }) => {
   const triggerRef = useRef(null);
 
   const calculateCollapseHeight = () => {
-    const triggerHeight = triggerRef.current
-      ? triggerRef.current.offsetHeight
-      : 0;
+    const triggerHeight = triggerRef.current.offsetHeight;
+
     if (textRef.current && triggerRef.current) {
       const contentHeight = isOpen ? textRef.current.scrollHeight : 0;
       setCollapseHeight(triggerHeight + contentHeight);
