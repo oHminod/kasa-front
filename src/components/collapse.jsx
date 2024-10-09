@@ -33,7 +33,7 @@ const Collapse = ({ trigger, text, rounded = true }) => {
       observer.disconnect();
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [isOpen]);
 
   return (
     <div
